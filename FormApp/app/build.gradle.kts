@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -55,4 +57,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 //    val nav_version = "2.9.7"
     implementation(libs.androidx.navigation.compose)
+//    val room_version = "2.8.4"
+    implementation(libs.androidx.room.ktx)
+//    val paging_version = "3.4.2"
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 }
