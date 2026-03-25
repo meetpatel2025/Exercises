@@ -4,18 +4,27 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.training.formapp.screens.UserListScreen
+import com.training.formapp.screens.AddEditScreen
+import com.training.formapp.screens.HomeScreen
+import com.training.formapp.viewmodel.UserViewModel
 
 @Composable
-fun AppNavigation(){
+fun AppNavigation(viewModel: UserViewModel) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "list"){
+    NavHost(navController, startDestination = "list") {
+
         composable("list") {
-            UserListScreen(navController)
+            HomeScreen(navController, viewModel)
         }
-        composable("create_profile")  {
-            UserListScreen(navController)
+
+        composable("add") {
+            AddEditScreen(navController, viewModel, null)
+        }
+
+        composable("edit/{userId}") { backStack ->
+            val id = backStack.arguments?.getString("userId")?.toInt()
+            AddEditScreen(navController, viewModel, id)
         }
     }
 }

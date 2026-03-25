@@ -58,9 +58,16 @@ dependencies {
 //    val nav_version = "2.9.7"
     implementation(libs.androidx.navigation.compose)
 //    val room_version = "2.8.4"
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 //    val paging_version = "3.4.2"
     implementation(libs.androidx.paging.runtime)
+    implementation(libs.paging.compose)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.room.paging)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+//    implementation(libs.androidx.hilt.navigation.fragment)
+//    implementation(libs.androidx.hilt.navigation.compose)
 }
